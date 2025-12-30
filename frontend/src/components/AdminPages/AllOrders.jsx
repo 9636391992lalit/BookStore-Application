@@ -20,7 +20,7 @@ const AllOrders = () => {
   useEffect(() => {
     const fetch = async () => {
       const res = await axios.get(
-        "http://localhost:1000/api/v1/get-all-orders",
+        `${import.meta.env.VITE_API_URL}/api/v1/get-all-orders`,
         { headers }
       );
 
@@ -36,7 +36,7 @@ const AllOrders = () => {
   const submitChanges = async (i) => {
     const id = OrderHistory[i]._id;
     const response = await axios.put(
-      `http://localhost:1000/api/v1/update-status/${id}`,
+      `${import.meta.env.VITE_API_URL}/api/v1/update-status/${id}`,
       Values,
       { headers }
     );

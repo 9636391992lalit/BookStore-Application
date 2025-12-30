@@ -17,7 +17,7 @@ const ViewBookDetails = () => {
     window.scrollTo(0, 0);
     const fetch = async () => {
       const res = await axios.get(
-        `http://localhost:1000/api/v1/get-book-by-id/${id}`
+        `${import.meta.env.VITE_API_URL}/api/v1/get-book-by-id/${id}`
       );
       setBook(res.data.data);
     };
@@ -31,7 +31,7 @@ const ViewBookDetails = () => {
   const addToFavourite = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:1000/api/v1/add-to-favourite",
+        `${import.meta.env.VITE_API_URL}/api/v1/add-to-favourite`,
         {},
         { headers }
       );
@@ -43,7 +43,7 @@ const ViewBookDetails = () => {
   const addToCart = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:1000/api/v1/add-to-cart",
+        `${import.meta.env.VITE_API_URL}/api/v1/add-to-cart`,
         {},
         { headers }
       );

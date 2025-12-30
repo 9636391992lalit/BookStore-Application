@@ -23,6 +23,9 @@ app.use("/api/v1", fav);
 app.use("/api/v1", order);
 
 //SERVER
+app.get("/",(req,res)=>{
+  res.send("BAckend is running ")
+})
 app.listen(PORT, () => {
   console.log(`Server Started at PORT : ${PORT} `);
 });

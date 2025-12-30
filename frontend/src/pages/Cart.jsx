@@ -22,7 +22,7 @@ const Cart = () => {
     } else {
       const fetch = async () => {
         const res = await axios.get(
-          "http://localhost:1000/api/v1/get-user-cart",
+          `${import.meta.env.VITE_API_URL}/api/v1/get-user-cart`,
           { headers }
         );
 
@@ -49,8 +49,8 @@ const Cart = () => {
   const deletItem = async (id) => {
     try {
       const response = await axios.put(
-        `http://localhost:1000/api/v1/remove-from-cart/${id}`,
-        {},
+        `${import.meta.env.VITE_API_URL}/api/v1/remove-from-cart`,
+        {id},
         { headers }
       );
       alert(response.data.message);
@@ -62,7 +62,7 @@ const Cart = () => {
   const PlaceOrder = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:1000/api/v1/place-order`,
+        `${import.meta.env.VITE_API_URL}/api/v1/place-order`,
         { order: Cart },
         { headers }
       );

@@ -10,7 +10,7 @@ const BookCard = ({ image, title, author, price, bookid, fav, onRemove  }) => {
   const removeFromFavourite = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:1000/api/v1/remove-from-favourite",
+        `${import.meta.env.VITE_API_URL}/api/v1/remove-from-favourite`,
         {},
         { headers }
       );
