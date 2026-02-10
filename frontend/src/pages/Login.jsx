@@ -20,7 +20,7 @@ const Login = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      if (Data.username === "" || Data.password === "") {
+      if (Data.usernamwe === "" || Data.password === "") {
         alert("All fields are required");
       } else {
         const response = await axios.post(
@@ -84,7 +84,7 @@ const Login = () => {
             Or
           </p>
           <p className="flex mt-4 items-center justify-center text-zinc-500 font-semibold">
-            Don't have an account? &nbsp;
+            Do not have an account? &nbsp;
             <Link to="/signup" className="hover:text-blue-500">
               <u>Sign Up</u>
             </Link>

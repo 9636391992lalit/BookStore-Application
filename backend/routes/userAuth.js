@@ -7,13 +7,12 @@ const authenticateToken = (req, res, next) => {
   if (token == null) {
     return res.status(401).json({ message: "Authentication token required" });
   }
-
   jwt.verify(token, "bookStore123", (err, user) => {
     if (err) {
-      return res.status(403).json(err);
+      return res.status(403).json({message:false,
+      error: err});
     }
     
-    req.user = user;
     next();
   });
 };

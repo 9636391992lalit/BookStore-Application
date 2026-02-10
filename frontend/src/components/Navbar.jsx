@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const role = useSelector((state) => state.auth.role);
+  console.log(isLoggedIn);
   var links = [
     {
       title: "Home",
@@ -35,7 +36,7 @@ const Navbar = () => {
     links.splice(4, 1);
   }
   if (role === "admin") {
-    links.splice(3, 1);
+    links.splice(2, 2);
   }
 
   return (

@@ -83,7 +83,7 @@ router.post("/login", async (req, res) => {
           { jti: jwt.sign({}, "bookStore123") },
         ];
         const token = jwt.sign({ authClaims }, "bookStore123", {
-          expiresIn: "3d",
+          expiresIn: "30d",
         });
 
         res.json({
@@ -111,7 +111,6 @@ router.get("/getUserData", authenticateToken, async (req, res) => {
     return res.status(500).json({ message: "An error occurred" });
   }
 });
-
 //Update address
 router.put("/update-user-address", authenticateToken, async (req, res) => {
   try {

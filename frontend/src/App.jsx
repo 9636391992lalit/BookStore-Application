@@ -10,6 +10,7 @@ import ViewBookDetails from "./pages/ViewBookDetails";
 import { authActions } from "./store/auth";
 import { useDispatch, useSelector } from "react-redux";
 import Cart from "./pages/Cart";
+import axios from "axios";
 import Profile from "./pages/Profile";
 import Favourite from "./pages/Favourite";
 import OrderHistory from "./pages/OrderHistory";
@@ -20,16 +21,34 @@ import UpdateBooks from "./components/AdminPages/UpdateBooks";
 const App = () => {
   const dispatch = useDispatch();
   const role = useSelector((state) => state.auth.role);
+  const headers = {
+    id: localStorage.getItem("id"),
+    authorization: `Bearer ${localStorage.getItem("token")}`,
+  };
   useEffect(() => {
-    if (
-      localStorage.getItem("id") &&
-      localStorage.getItem("token") &&
-      localStorage.getItem("role")
-    ) {
-      dispatch(authActions.login());
-      dispatch(authActions.changeRole(localStorage.getItem("role")));
+  const fetch = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/v1/getUserData`,
+        { headers }
+      );
+      if (
+        localStorage.getItem("id") &&
+        localStorage.getItem("token") &&
+        localStorage.getItem("role")
+      ) {
+        dispatch(authActions.login());
+        dispatch(authActions.changeRole(localStorage.getItem("role")));
+      }
+    } catch (error) {
+      console.log("Fetch failed:", error.response?.status);
+      // ❌ if-condition will NOT execute here
     }
-  }, []);
+  };
+
+  fetch();
+}, []);
+
   return (
     <div className="">
       <Navbar />

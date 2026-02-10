@@ -41,7 +41,7 @@ const Sidebar = ({ ProfileData }) => {
       )}
       {role == "admin" && (
         <div className="w-full  flex-col items-center justify-center hidden lg:flex">
-          <Link
+          <Link   
             to="/profile"
             className="text-zinc-100 font-semibold w-full py-2 text-center hover:bg-zinc-900 rounded transition-all duration-300"
           >

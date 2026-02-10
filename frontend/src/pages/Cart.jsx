@@ -7,6 +7,7 @@ import Loader from "./Loader";
 const Cart = () => {
   const navigate = useNavigate();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  
   const history = useNavigate();
   useEffect(() => {}, []);
   const [Cart, setCart] = useState();
@@ -108,7 +109,7 @@ const Cart = () => {
                 <h1 className="text-2xl text-zinc-100 font-semibold text-start  mt-2 md:mt-0 ">
                   {items.title}
                 </h1>
-                <p className="text-normal text-zinc-300 mt-2 hidden lg:block ">
+                <p className="text-normal text-zinc-300 mt-2 hidden lg:block md:hidden ">
                   {items.desc.slice(0, 100)}...
                 </p>
                 <p className="text-normal text-zinc-300 mt-2 hidden md:block lg:hidden ">

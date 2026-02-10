@@ -109,9 +109,7 @@ const AllOrders = () => {
               <div className="w-[30%] md:w-[16%]">
                 <h1 className="font-semibold ">
                   <button
-                    className={`${
-                      Options === "hidden" ? "block" : "hidden"
-                    } hover:scale-105 `}
+                    className={` hover:scale-105 `}
                     onClick={() => setEditableDiv(i)}
                   >
                     {items.status === "Order placed" ? (
