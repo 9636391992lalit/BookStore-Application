@@ -9,11 +9,19 @@ const order = require("./routes/order");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 1000;
-app.use(cors({
-  origin: ["http://localhost:5173", "https://bookstoreapplicationbackend.vercel.app"],
+
+const corsOptions = {
+  origin: [
+    "http://localhost:5173",
+    "https://book-store-frontend-alpha-hazel.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
-}));
-app.options("*", cors());
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
+
 app.use(express.json());
 
 //Connection
@@ -27,9 +35,10 @@ app.use("/api/v1", fav);
 app.use("/api/v1", order);
 
 //SERVER
-app.get("/",(req,res)=>{
-  res.send("BAckend is running ")
-})
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
+
 app.listen(PORT, () => {
-  console.log(`Server Started at PORT : ${PORT} `);
+  console.log(`Server Started at PORT : ${PORT}`);
 });
