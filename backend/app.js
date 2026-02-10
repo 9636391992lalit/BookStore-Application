@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 1000;
 const corsOptions = {
   origin: [
     "http://localhost:5173",
-    "https://book-store-frontend.vercel.app"
+    "https://book-store-application-mocha.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
