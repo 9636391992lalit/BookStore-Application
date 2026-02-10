@@ -10,7 +10,7 @@ require("dotenv").config();
 
 const PORT = process.env.PORT || 1000;
 app.use(cors({
-  origin: ["http://localhost:5173", "https://bookstoreapplicationbackend.vercel.app/"],
+  origin: ["http://localhost:5173", "https://bookstoreapplicationbackend.vercel.app"],
   credentials: true
 }));
 
